@@ -1,32 +1,23 @@
-# Common Python ignores
-__pycache__/
-*.py[cod]
-*$py.class
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Package artifacts
-build/
-dist/
-*.egg-info/
+node_modules
+dist
+dist-ssr
+*.local
 
-# Dependencies
-node_modules/
-vendor/
-
-# Virtual environments
-.env/
-.venv/
-env/
-venv/
-
-# Test and coverage outputs
-.pytest_cache/
-.coverage
-
-# IDE directories
-.vscode/
-.idea/
-.vs/
-
-# OS-generated files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
