@@ -1,35 +1,21 @@
-# Quick Notes - Process Builder V2
+# Quick notes from ClaudeCoding
 
-## Recent Changes
+## PRD 1
+### Attempt 1
+[x] Ensure testing is setup and run (skipped early in TODO).
+[x] Ensure API calls and keys are not exposed. App will be added to Github and published via Bolt.new.
+    [x] Add .env.local to store api keys (openai and supabase) and reference this for execution. Ensure api keys remain protected.
+[] Clean up codebase by removing uncessary or unused files.
+[] Review codebase for areas of improvement (.env.example, create CLAUDE.md file, update CHANGELOG.md).
+[x]  Edit setup.ts - Edit failed: src/test/setup.ts
+<<import '@testing-library/jest-dom/vitest';
 
-### 2025-11-18: Updated System Prompt Strategy
-
-**Change**: Modified AI conversation approach to generate diagrams immediately on first prompt
-
-**Previous behavior**:
-- AI would ask clarifying questions BEFORE generating any diagram
-- User had to answer questions first before seeing visual output
-- This was inconvenient and slowed down the workflow
-
-**New behavior**:
-- AI generates complete JSON diagram immediately from first user description
-- Makes intelligent inferences and reasonable assumptions
-- Displays brief text summary in chat (actors, flow, controls, risks)
-- THEN asks 2-4 focused follow-up questions to refine the diagram
-- Subsequent responses update the diagram based on user answers
-
-**Implementation**:
-- Updated `supabase/functions/openai-chat-v2/index.ts` system prompt
-- Added "CRITICAL: Always generate JSON first, then ask questions" rule
-- Added "CRITICAL FORMATTING RULE" to keep chat concise (no full JSON in text)
-- Redeployed Edge Function to production
-
-**User Experience**:
-- Users see a diagram immediately on first message
-- Can iterate and refine through conversation
-- Much faster and more intuitive workflow
-
-**Files Modified**:
-- `supabase/functions/openai-chat-v2/index.ts` (lines 19-154)
-
-**Status**:  Deployed to production Supabase
+// Mock environment variables for tests
+if (typeof process !== 'undefined') {
+  process.env.VITE_SUPABASE_URL = 'https://test.supabase.co';
+  process.env.VITE_SUPABASE_ANON_KEY = 'test-anon-key';>>
+[] Next step: enable rate limiting
+[] Supabase integration?
+[] Address large file load, implement dynamic loading - ask claude to clarify
+[x] Adjust system prompt to only ask questions when unsure of user input or not confident in output. 
+[x] UX: Allow the chat to be scrolled independently of the diagram and rest of app
