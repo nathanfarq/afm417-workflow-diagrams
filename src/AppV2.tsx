@@ -7,6 +7,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import ChatInterfaceV2 from './components/ChatInterfaceV2';
 import { MermaidRendererLazy } from './components/MermaidRendererLazy';
+import ControlsRisksSummary from './components/ControlsRisksSummary';
 import { sendMessage, testOpenAIConnection } from './services/openai-v2';
 import { createConversationV2, updateConversationV2 } from './services/conversationServiceV2';
 import type { ChatMessage, ProcessSchema } from './types/processSchema';
@@ -192,10 +193,10 @@ function AppV2() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold text-gray-900">
-                AI-Powered Process Builder V2
+                Visual Flow Assistant
               </h1>
               <p className="text-sm text-gray-600 mt-1">
-                Conversational process mapping with Mermaid diagrams
+                Conversational process mapping with diagram generation
               </p>
             </div>
             {currentJSON && (
@@ -237,6 +238,13 @@ function AppV2() {
             />
           </div>
         </div>
+
+        {/* Controls and Risks Summary - Full width below chat and diagram */}
+        {currentJSON && (currentJSON.controls.length > 0 || currentJSON.risks.length > 0) && (
+          <div className="mt-6">
+            <ControlsRisksSummary processJson={currentJSON} />
+          </div>
+        )}
       </main>
 
       {/* Legend */}
