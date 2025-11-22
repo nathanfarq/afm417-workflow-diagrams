@@ -20,9 +20,9 @@ export interface RateLimitResult {
   retryAfter?: number;      // Seconds until rate limit resets
 }
 
-// Default configuration: 20 requests per 5 minutes
+// Default configuration: 40 requests per 5 minutes
 const DEFAULT_CONFIG: RateLimitConfig = {
-  maxRequests: 20,
+  maxRequests: 40,
   windowMinutes: 5,
   endpoint: "openai-chat-v2",
 };

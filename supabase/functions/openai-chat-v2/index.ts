@@ -198,7 +198,7 @@ Deno.serve(async (req: Request) => {
 
     // Check rate limit
     const rateLimitResult = await checkRateLimit(effectiveSessionId, {
-      maxRequests: 20,      // 20 requests
+      maxRequests: 40,      // 40 requests
       windowMinutes: 5,     // per 5 minutes
       endpoint: "openai-chat-v2",
     });
