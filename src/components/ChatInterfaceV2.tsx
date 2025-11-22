@@ -105,7 +105,7 @@ export default function ChatInterfaceV2({
       <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-t-lg flex-shrink-0">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-semibold">Visual Flow Builder</h2>
+            <h2 className="text-xl font-semibold">Build a Visual Flow!</h2>
             <p className="text-sm text-blue-100 mt-1">
               Describe your process, and I'll help you create a flow diagram
             </p>
